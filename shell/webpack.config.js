@@ -55,7 +55,14 @@ module.exports = {
       name: "shell",
       filename: "remoteEntry.js",
       remotes: {
-        microfront: "microfront@http://localhost:3001/remoteEntry.js"
+        microfront: "microfront@http://localhost:3001/remoteEntry.js",
+        microfront2: "microfront2@http://localhost:3002/remoteEntry.js",
+      },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: deps.react
+        }
       }
     }),
     new HtmlWebpackPlugin({

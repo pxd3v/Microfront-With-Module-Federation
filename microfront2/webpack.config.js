@@ -9,7 +9,7 @@ module.exports = {
   mode: "development",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 3001,
+    port: 3002,
     historyApiFallback: true,
     hot: false,
     hotOnly: false,
@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "microfront",
+      name: "microfront2",
       filename: "remoteEntry.js",
       exposes: {
         "./Microfront": "./src/Microfront"
