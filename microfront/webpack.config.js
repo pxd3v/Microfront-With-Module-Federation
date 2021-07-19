@@ -57,6 +57,9 @@ module.exports = {
       exposes: {
         "./Microfront": "./src/Microfront"
       },
+      remotes: {
+        shell: "shell@http://localhost:3000/remoteEntry.js",
+      },
       shared: {
         react: {
           singleton: true,

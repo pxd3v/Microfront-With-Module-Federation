@@ -54,16 +54,24 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "shell",
       filename: "remoteEntry.js",
+      exposes: {
+        "./Service": "./src/Service"
+      },
       remotes: {
         microfront: "microfront@http://localhost:3001/remoteEntry.js",
-        microfront2: "microfront2@http://localhost:3002/remoteEntry.js",
+        microfront2: "microfront2@http://localhost:3002/remoteEntry.js"
       },
-      shared: {
-        react: {
-          singleton: true,
-          requiredVersion: deps.react
-        }
-      }
+      shared: [
+        {
+          ...deps,
+          react: {
+            singleton: true,
+            requiredVersion: deps.react,
+          },
+        },
+        // Workaround explaination: https://www.youtube.com/watch?v=-LNcpralkjM&t=540
+        "./src/Service",
+      ],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
