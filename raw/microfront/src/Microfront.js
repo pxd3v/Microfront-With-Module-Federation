@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from './example'
 // import { useServiceContext } from "shell/Service";
 
 const Microfront = () => {
@@ -18,6 +19,7 @@ const Microfront = () => {
             <div className="text-center">
                 temporary    
             </div>
+            <Example />
         </div>        
     )
 };
